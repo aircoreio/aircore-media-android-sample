@@ -3,13 +3,17 @@ AircoreMediaSample is a sample app that gives an example of how to use the [Airc
 
 # Building
 
-### Device
+### Requirements
 
-Build AircoreMediaSample with Android Studio, on a device running Android 12 or higher.
+Build AircoreMediaSample with Android Studio Chipmunk (2021) or higher, on an device running Android 12 or higher.
 
-On the target Android device, tap the Build number seven times to enable developer options.
+### Instructions
 
-Go to Developer options and enable USB debugging.
+On the target Android device, navigate to Settings → About Phone → Build number
+
+Tap the Build number seven times to enable developer options.
+
+Go to Settings → System → Advanced → Developer Options → USB debugging and enable USB debugging.
 
 Tether an Android into your machine, and a note should popup asking whether or not you will allow it access. Click Okay.
 
