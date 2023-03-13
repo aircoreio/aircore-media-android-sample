@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">AircoreMediaSample</string>
+    <string name="pak_hint">Publishable App Token</string>
+    <string name="channel_hint">Channel ID</string>
+    <string name="user_hint">User ID</string>
+    <string name="join_channel">Join Channel</string>
+    <string name="chanel_config_text">Channel Configuration</string>
+    <string name="chanel_status_text">Channel Status</string>
+    <string name="join_state">JoinState:</string>
+    <string name="termination_cause">TerminationCause:</string>
+    <string name="channel_id">Channel ID:</string>
+    <string name="leave_channel">Leave Channel</string>
+    <string name="localstream_status_text">LocalStream Status</string>
+    <string name="remotestream_status_text">RemoteStream Status</string>
+    <string name="connection_state">Connection State:</string>
+    <string name="mute">Mute</string>
+    <string name="unmute">Unmute</string>
+    <string name="publish">Publish</string>
+    <string name="remote_streams_header">Remote Streams</string>
+    <string name="user_id">User ID:</string>
+    <string name="stream_url">Stream URL:</string>
+    <string name="query_mute">State</string>
+    <string name="aircore_sdk_version">Aircore SDK Version: </string>
+    <string name="vad_indicator">Vad Indicator</string>
 </resources>

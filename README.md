@@ -6,12 +6,11 @@ AircoreMediaSample is a sample app that gives an example of how to use the [Airc
 1. [Android Studio](https://developer.android.com/studio) version *Electric Eel* (2022.1.1) or higher.
 2. A device running [Android 13](https://developer.android.com/about/versions/13)
 3. A USB cable to tether the device to the machine where you will run [Android Studio](https://developer.android.com/studio).
+4. An **Aircore** *Publishable API Key*. Refer to the [documentation](https://docs.aircore.io/authentication) for an understanding of creating an app and API Keys
 
 #### Preparing Your Device
-1. Navigate to Settings, then About Phone, and find the Android version of the device (may need to go into the Software information page). Verify that your device is using [Android 13](https://developer.android.com/about/versions/13). Update to [Android 13](https://developer.android.com/about/versions/13), if necessary.
-2. In About Phone, find the Build number of the device (may need to go into the Software information page) and tap seven (7) times to enable developer options.
-4. From Settings, navigate to Developer Options (may need to go into the System page) and enable USB debugging.
-5. Tether the device to your development machine by connecting it with a USB cable. If this is the first time connecting the device, a dialog window should pop up asking whether or not you will allow it access. Click Okay.
+1. [Enable Developer Options on your device](https://developer.android.com/studio/debug/dev-options#enable), note that this process may vary depending on your device and Android version
+2. [Enable USB Debugging](https://developer.android.com/studio/debug/dev-options#Enable-debugging)
 
 #### Building, Installing, and Running
 1. Install [Android Studio](https://developer.android.com/studio) version *Electric Eel* (2022.1.1) or higher.
@@ -21,5 +20,18 @@ AircoreMediaSample is a sample app that gives an example of how to use the [Airc
 5. Click the green hammer icon to build the sample application. If that is successful, click the triangle icon to run and install it on your device.
 6. The sample application should now be running on your device.
 
-# The AircoreMediaSample UI
-The app displays the version of Aircore Android Flex SDK being used.
+# Using **AircoreMediaSample**
+## SDK Version
+The app always displays the version of Aircore Android Flex SDK that it is using.
+## Joining a Channel
+Users publish media to, and receive media from, from a _Channel_. To join a Channel, There is a field above the `Join Channel` button which needs to be completely filled out to successfully join.
+Input an Aircore Publishable API Key/Publishable App Token, as well as the desired channel name and user ID then press the button.
+Upon success, the channel `Joinstate` field below should update to `joining` then `joined`; upon an error, the `TerminationCause` below will reflect what went wrong.
+## Publishing Audio
+Once you have joined the channel, the `Publish` button will allow for the publication of a LocalStream, enabling other users in the channel to hear audio recorded.
+This requires giving the application microphone permissions.
+Mute and unmute of the publication is enabled after publication starts.
+The `Vad Indicator` field below will light up with a green icon if voice activity is detected while publishing, and the `Connection State` and `Termination Cause` will reflect the state of the LocalStream.
+## Playing Audio
+*AircoreMediaSample* will play out audio from other users who are publishing into the same _Channel_ (i.e., using the same application and channel identifiers), these appear to users as _RemoteStreams_.
+Below the publication section, any RemoteStreams in the channel will be listed with the `UserID` and `StreamURL` of the remote publisher, the `Connection State` of the RemoteStream, and buttons to toggle the mute/unmute state of the RemoteStream, as well as to list the local and remote mute state of the stream.

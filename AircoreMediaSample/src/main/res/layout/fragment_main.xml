@@ -2,21 +2,326 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/sdk_version"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
-    <TextView
-        android:id="@+id/sdk_version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SDK version: "
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|top"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/sdk_version_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/sdk_version_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="?android:attr/listDivider" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/channel_config_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/channel_config_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chanel_config_text" />
+
+                <EditText
+                    android:id="@+id/pakInputText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="@string/pak_hint"
+                    android:inputType="textMultiLine" />
+
+                <EditText
+                    android:id="@+id/channelIdInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:hint="@string/channel_hint"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/userIdInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:hint="@string/user_hint"
+                    android:inputType="textPersonName" />
+
+                <Button
+                    android:id="@+id/join_channel_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/join_channel" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="?android:attr/listDivider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/current_channel_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/channel_status_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/channel_status_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chanel_status_text" />
+
+                    <LinearLayout
+                        android:id="@+id/channel_id_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/channelIdLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/channel_id"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:id="@+id/channelId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/join_state_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/joinStateLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/join_state"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:id="@+id/joinState"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/termination_cause_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/terminationCauseLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/termination_cause"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:id="@+id/terminationCause"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/leave_channel_btn"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/leave_channel" />
+
+                    <View
+                        android:id="@+id/divider3"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="?android:attr/listDivider" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/localstream_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/localstream_status_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/localstream_status_text" />
+
+                    <LinearLayout
+                        android:id="@+id/localstream_controls_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/publish_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="@string/publish" />
+
+                        <Button
+                            android:id="@+id/local_mute_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:enabled="false"
+                            android:text="@string/mute" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vad_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/vadStateLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/vad_indicator"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <ImageView
+                            android:id="@+id/localVadIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/vad_indicator"
+                            android:visibility="invisible"
+                            app:srcCompat="@android:drawable/presence_online" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/localstream_connection_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/localStreamConnectionStateLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/connection_state"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:id="@+id/localStreamConnectionState"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/localstream_termination_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/localStreamTerminationCauseLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/termination_cause"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:id="@+id/localStreamTerminationCause"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/divider4"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/remotestream_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/remotestream_status_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/remotestream_status_text" />
+
+                    <ListView
+                        android:id="@+id/stream_list_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
