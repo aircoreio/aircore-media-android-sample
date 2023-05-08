@@ -30,7 +30,6 @@ class RemoteStreamAdapter(
         .inflate(R.layout.remotestream_layout, parent, false)
       holder = ViewHolder()
       holder.userId = newView.findViewById<TextView>(R.id.remoteStreamUserId)
-      holder.streamUrl = newView.findViewById<TextView>(R.id.remoteStreamUrl)
       holder.connectionState =
         newView.findViewById<TextView>(R.id.remoteStreamConnectionState)
       holder.muteButton = newView.findViewById<Button>(R.id.remoteStreamMuteButton)
@@ -45,18 +44,15 @@ class RemoteStreamAdapter(
      */
     streamWrapper.setDelegate(object : RemoteStreamView.Delegate {
       override fun connectionStateDidChange(newState: RemoteStream.ConnectionState?) {
-        if (stream.streamUrl !== (holder.streamUrl?.text ?: "")) return
         mActivity.runOnUiThread { holder.connectionState?.text = newState.toString() }
       }
 
       override fun vadStatusChanged(active: Boolean) {
-        if (stream.streamUrl !== (holder.streamUrl?.text ?: "")) return
         mActivity.runOnUiThread { holder.vadIndicator?.visibility = if (active) View.VISIBLE else View.INVISIBLE }
       }
     })
     holder.vadIndicator?.visibility = if (stream.hasVoiceActivity()) View.VISIBLE else View.INVISIBLE
     holder.userId?.text = stream.userID
-    holder.streamUrl?.text = stream.streamUrl
     holder.connectionState?.text = stream.connectionState.toString()
     val muted = stream.localAudioMuted
     holder.muteButton?.text = if (muted) {
@@ -100,7 +96,6 @@ class RemoteStreamAdapter(
 
   private class ViewHolder {
     var userId: TextView? = null
-    var streamUrl: TextView? = null
     var connectionState: TextView? = null
     var muteButton: Button? = null
     var muteStateButton: Button? = null

@@ -29,8 +29,8 @@ class RemoteStreamView(var stream: RemoteStream) {
       ) {
         Log.d(
           TAG,
-          "Stream " + stream.streamUrl +
-            " changed connection state to " + newState + " from " + oldState
+          stream.userID + "'s stream changed connection state to " +
+                  newState + " from " + oldState
         )
         mDelegate?.connectionStateDidChange(newState)
       }
@@ -39,7 +39,7 @@ class RemoteStreamView(var stream: RemoteStream) {
       override fun localAudioMuteStateDidChange(muted: Boolean) {
         Log.d(
           TAG,
-          "Stream " + stream.streamUrl + " has been " +
+          stream.userID + "'s stream has been " +
             (if (muted) "muted" else "unmuted") + " locally"
         )
       }
@@ -48,7 +48,7 @@ class RemoteStreamView(var stream: RemoteStream) {
       override fun remoteAudioMuteStateDidChange(muted: Boolean) {
         Log.d(
           TAG,
-          "Stream " + stream.streamUrl + " has been " +
+          stream.userID + "'s stream has been " +
             (if (muted) "muted" else "unmuted") + " remotely"
         )
       }

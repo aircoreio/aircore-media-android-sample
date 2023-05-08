@@ -34,4 +34,4 @@ Mute and unmute of the publication is enabled after publication starts.
 The `Vad Indicator` field below will light up with a green icon if voice activity is detected while publishing, and the `Connection State` and `Termination Cause` will reflect the state of the LocalStream.
 ## Playing Audio
 *AircoreMediaSample* will play out audio from other users who are publishing into the same _Channel_ (i.e., using the same application and channel identifiers), these appear to users as _RemoteStreams_.
-Below the publication section, any RemoteStreams in the channel will be listed with the `UserID` and `StreamURL` of the remote publisher, the `Connection State` of the RemoteStream, and buttons to toggle the mute/unmute state of the RemoteStream, as well as to list the local and remote mute state of the stream.
+Below the publication section, any RemoteStreams in the channel will be listed with the `UserID` the remote publisher, the `Connection State` of the RemoteStream, and buttons to toggle the mute/unmute state of the RemoteStream, as well as to list the local and remote mute state of the stream.
